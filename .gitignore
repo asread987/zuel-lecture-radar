@@ -1,0 +1,24 @@
+# ── 运行时产物（不要提交）────────────────────────────────
+data/
+out/
+*.log
+
+# ── 用户配置：含微信推送密钥，绝对不能提交 ────────────────
+# 每人一份 config/users/<标识>.yaml，各自填自己的 Server酱 key / token。
+# 模板见 config/user-template.yaml（这个是要提交的）。
+# 注意用 config/users/*（而不是 config/users/），否则下面那行 .gitkeep 的
+# 豁免会失效——git 不会进入被整体忽略的目录去应用 ! 规则。
+config/users/*
+!config/users/.gitkeep
+
+# ── Python ────────────────────────────────────────────
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# ── 编辑器 / 系统 ──────────────────────────────────────
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,248 @@
+# =============================================================================
+# ZUEL 讲座雷达 · 信息源库
+# =============================================================================
+# 所有栏目地址均为 2026-09 实地探测所得（用 scripts/discover_sources.py 可重新探测）。
+#
+# 字段说明：
+#   key        唯一标识，用户配置里的 sources 用它来订阅
+#   name       展示名（也会出现在报告里）
+#   group      分组名，用户配置里也可以用分组名订阅整个学院
+#   type       bode（博达CMS栏目页） / rss / wechat_manual / sogou_wechat
+#   base bode 站点根地址
+#   column bode 栏目 ID（列表页为 <base>/<column>/list.htm）
+#   list_url   显式列表页地址，优先级高于 base+column
+#   pages      最多翻几页（Bode 分页为 list2.htm、list3.htm …）
+#   econ_bias  源级经济学倾向加分（经济学强相关学院 +1，其他 0）
+#   channel    展示用：web 官网 / wechat 公众号
+#
+# 重要提示（关于微信公众号）：
+#   微信公众号没有公开内容 API，无法稳定爬取。各学院的公众号内容与官网
+#   「学术讲座」栏目高度重合，因此默认只用官网渠道。若你确需公众号渠道，
+#   推荐用 RSSHub / wechat2rss 把公众号转成 Feed，再按下面注释里的例子配置
+#   type: rss 的源（见文件末尾示例）。
+# =============================================================================
+
+sources:
+  # ── 经济学强相关学院 ───────────────────────────────────────────────────
+  - key: jjxy-lectures
+    name: 经济学院·学术讲座
+    group: 经济学院
+    type: bode
+    base: https://jjxy.zuel.edu.cn/
+    column: "2834"
+    pages: 3
+    econ_bias: 1
+    note: 含「中南经济午间工作坊」「文澜高端论坛」系列，预告与回顾都在此栏目
+
+  - key: csxy-lectures
+    name: 财政税务学院·学术讲座
+    group: 财政税务学院
+    type: bode
+    base: https://csxy.zuel.edu.cn/
+    column: "7106"
+    pages: 3
+    econ_bias: 1
+    note: 「中南财税·文澜财税论坛」系列
+
+  - key: finance-exchange
+    name: 金融学院·学术交流
+    group: 金融学院
+    type: bode
+    base: https://finance.zuel.edu.cn/
+    column: "1127"
+    pages: 2
+    econ_bias: 1
+
+  - key: finance-conf
+    name: 金融学院·学术会议
+    group: 金融学院
+    type: bode
+    base: https://finance.zuel.edu.cn/
+    column: "1128"
+    pages: 2
+    econ_bias: 1
+
+  - key: kjxy-lectures
+    name: 会计学院·学术讲座
+    group: 会计学院
+    type: bode
+    base: https://kjxy.zuel.edu.cn/
+    column: "16209"
+    pages: 2
+    econ_bias: 1
+
+  - key: gsxy-lectures
+    name: 工商管理学院·讲座信息
+    group: 工商管理学院
+    type: bode
+    base: https://gsxy.zuel.edu.cn/
+    column: "4133"
+    pages: 2
+    econ_bias: 1
+    note: 栏目本身条目较少
+
+  - key: ggglxy-lectures
+    name: 公共管理学院·学术活动
+    group: 公共管理学院
+    type: bode
+    base: https://ggglxy.zuel.edu.cn/
+    column: "18776"
+    pages: 2
+    econ_bias: 1
+
+  - key: wls-academic
+    name: 文澜学院·学术活动
+    group: 文澜学院
+    type: bode
+    base: https://wls.zuel.edu.cn/
+    column: "3778"
+    pages: 2
+    econ_bias: 1
+
+  - key: tsxy-academic
+    name: 统计与数学学院·学术动态
+    group: 统计与数学学院
+    type: bode
+    base: https://tsxy.zuel.edu.cn/
+    column: "4850"
+    pages: 2
+    econ_bias: 1
+    note: 计量/统计方向讲座常在此，与经济学交叉较多
+
+  # ── 校级讲座栏目（研究生院，覆盖全校）─────────────────────────────────
+  - key: yjsy-wenlan-dajiangtang
+    name: 研究生院·文澜大讲堂
+    group: 研究生院
+    type: bode
+    base: https://yjsy.zuel.edu.cn/
+    column: "17967"
+    pages: 3
+    econ_bias: 1
+    note: 校级系列讲座公告，含讲座公告与举办报道
+
+  - key: yjsy-wenlan-forum
+    name: 研究生院·文澜论坛
+    group: 研究生院
+    type: bode
+    base: https://yjsy.zuel.edu.cn/
+    column: "17965"
+    pages: 2
+    econ_bias: 0
+
+  - key: yjsy-youbo-forum
+    name: 研究生院·优博论坛
+    group: 研究生院
+    type: bode
+    base: https://yjsy.zuel.edu.cn/
+    column: "17995"
+    pages: 2
+    econ_bias: 0
+
+  # ── 其他学科（用于「非经济学讲座」分区）────────────────────────────────
+  - key: zxy-academic
+    name: 哲学院·学术动态
+    group: 哲学院
+    type: bode
+    base: https://zxy.zuel.edu.cn/
+    column: "3258"
+    pages: 2
+    econ_bias: 0
+
+  - key: xwcb-academic
+    name: 新闻与文化传播学院·学术动态
+    group: 新闻与文化传播学院
+    type: bode
+    base: https://xwcb.zuel.edu.cn/
+    column: "6934"
+    pages: 2
+    econ_bias: 0
+
+  - key: mkszyxy-research
+    name: 马克思主义学院·科研动态
+    group: 马克思主义学院
+    type: bode
+    base: https://mkszyxy.zuel.edu.cn/
+    column: "1711"
+    pages: 2
+    econ_bias: 0
+
+  - key: ipschool-dynamics
+    name: 知识产权学院·教科动态
+    group: 知识产权学院
+    type: bode
+    base: https://ipschool.zuel.edu.cn/
+    column: "17077"
+    pages: 2
+    econ_bias: 0
+
+  - key: jjjcxy-dynamics
+    name: 纪检监察学院·教科动态
+    group: 纪检监察学院
+    type: bode
+    base: https://jjjcxy.zuel.edu.cn/
+    column: "13948"
+    pages: 2
+    econ_bias: 0
+
+  - key: wgyxy-exchange
+    name: 外国语学院·学术交流
+    group: 外国语学院
+    type: bode
+    base: https://wgyxy.zuel.edu.cn/
+    column: "10332"
+    pages: 2
+    econ_bias: 0
+
+  - key: xagx-conf
+    name: 信息工程学院·联合会议
+    group: 信息工程学院
+    type: bode
+    base: https://xagx.zuel.edu.cn/
+    column: "18287"
+    pages: 2
+    econ_bias: 0
+
+  # ── 微信公众号渠道（默认关闭，配置好 Feed 后把 enabled 改为 true）──────
+  # 用法：先自建 RSSHub 或 wechat2rss，把公众号转成 Feed，再填 feed_url。
+  # 例如 RSSHub 的微信路由：https://<你的RSSHub>/wechat/xxx
+  - key: wechat-jjxy
+    name: 经济学院公众号
+    group: 经济学院
+    type: rss
+    enabled: false
+    feed_url: ""
+    channel: wechat
+    econ_bias: 1
+    note: 需先自建 RSSHub / wechat2rss 并填入 feed_url
+
+  - key: wechat-csxy
+    name: 财政税务学院公众号
+    group: 财政税务学院
+    type: rss
+    enabled: false
+    feed_url: ""
+    channel: wechat
+    econ_bias: 1
+    note: 需先自建 RSSHub / wechat2rss 并填入 feed_url
+
+  # ── 手工登记微信文章（少量、确知链接时用）─────────────────────────────
+  - key: wechat-manual-demo
+    name: 微信公众号手工源
+    group: 手工源
+    type: wechat_manual
+    enabled: false
+    channel: wechat
+    urls: []
+    note: 直接登记 mp.weixin.qq.com 文章链接，适合少量确知链接的情况
+
+  # ── 搜狗微信关键词检索（兜底，稳定性差，默认关闭）─────────────────────
+  - key: sogou-wechat
+    name: 搜狗微信检索
+    group: 手工源
+    type: sogou_wechat
+    enabled: false
+    channel: wechat
+    keywords:
+      - 中南财经政法大学 讲座
+      - 中南财经政法大学 学术报告
+    note: 反爬严格，仅在无其它渠道时开启

@@ -1,0 +1,33 @@
+MIT License
+
+Copyright (c) 2026 <在此填写你的名字或组织>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+使用须知（不属于 MIT 许可条款，但请一并遵守）
+
+本工具会定时访问中南财经政法大学各学院官网抓取公开的讲座通知。分发或使用前请注意：
+
+1. 保持克制的访问频率（默认每域名 ≥1.2 秒一次、每天一轮），不要改成高频轮询，
+   以免给学校站点造成不必要的负担，也避免自己的 IP 被 WAF 封禁。
+2. 抓取到的内容版权归各学院/原作者所有，仅供个人查阅，不要再公开发布或用于商业用途。
+3. 请勿把带推送密钥的 config/users/*.yaml 提交到公开仓库（.gitignore 已做默认防护，
+   但请自己再检查一遍）。
